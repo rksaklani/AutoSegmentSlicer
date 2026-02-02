@@ -1,0 +1,15 @@
+diff --git a/SuperBuild/External_ITK.cmake b/SuperBuild/External_ITK.cmake
+--- a/SuperBuild/External_ITK.cmake
++++ b/SuperBuild/External_ITK.cmake
+@@ -40,6 +40,12 @@ ExternalProject_SetIfNotDefined(
+  )
+ 
+  set(EXTERNAL_PROJECT_OPTIONAL_CMAKE_CACHE_ARGS)
++
++ if(WIN32)
++  list(APPEND EXTERNAL_PROJECT_OPTIONAL_CMAKE_CACHE_ARGS
++   -DITK_SKIP_PATH_LENGTH_CHECKS:BOOL=ON
++  )
++ endif()
+ 
+  if(Slicer_USE_TBB)

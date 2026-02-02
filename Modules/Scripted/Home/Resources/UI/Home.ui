@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Home</class>
+ <widget class="qSlicerWidget" name="Home">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>320</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>8</number>
+   </property>
+   <property name="leftMargin">
+    <number>4</number>
+   </property>
+   <property name="topMargin">
+    <number>4</number>
+   </property>
+   <property name="rightMargin">
+    <number>4</number>
+   </property>
+   <property name="bottomMargin">
+    <number>4</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="WelcomeLabel">
+     <property name="text">
+      <string>Welcome</string>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="quickActionsGrid">
+     <property name="horizontalSpacing">
+      <number>6</number>
+     </property>
+     <property name="verticalSpacing">
+      <number>6</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="AddDataButton">
+       <property name="text">
+        <string>Add Data</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="AddDICOMDataButton">
+       <property name="text">
+        <string>Add DICOM Data</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="InstallExtensionsButton">
+       <property name="text">
+        <string>Install Extensions</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="DownloadSampleDataButton">
+       <property name="text">
+        <string>Download Sample Data</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="CustomizeSlicerButton">
+       <property name="text">
+        <string>Customize Slicer</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="ExploreAddedDataButton">
+       <property name="text">
+        <string>Explore Added Data</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="LoadVolumeByPathGroupBox">
+     <property name="title">
+      <string>Load volume by path (NIfTI / etc.)</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+     <layout class="QVBoxLayout" name="loadVolumeByPathLayout">
+      <item>
+       <layout class="QHBoxLayout" name="loadVolumePathRow">
+        <item>
+         <widget class="QLineEdit" name="LoadVolumePathLineEdit">
+          <property name="placeholderText">
+           <string>e.g. M:/RKDrive/IA_Sub_001.nii</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="LoadVolumePathBrowseButton">
+          <property name="text">
+           <string>Browse...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="loadVolumeButtonsRow">
+       <item>
+        <widget class="QPushButton" name="LoadVolumePathButton">
+         <property name="text">
+          <string>Load volume</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="OpenDICOMPatcherButton">
+         <property name="text">
+          <string>Open DICOMPatcher</string>
+         </property>
+         <property name="toolTip">
+          <string>Open DICOM Patcher module (fix DICOM files for import)</string>
+         </property>
+        </widget>
+       </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="LoadVolumePathHintLabel">
+        <property name="text">
+         <string>If Add Data fails (e.g. path shown twice), paste the correct path here and click Load.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="styleSheet">
+         <string>color: gray; font-size: 11px;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="FeedbackGroupBox">
+     <property name="title">
+      <string>Feedback</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+     <layout class="QVBoxLayout" name="feedbackLayout">
+      <item>
+       <widget class="QLabel" name="FeedbackLabel">
+        <property name="text">
+         <string>Share your stories with us on the Slicer forum and let us know about how 3D Slicer has enabled your research.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="FeedbackLinksLabel">
+        <property name="text">
+         <string>• Slicer forum
+• Help → Report a Bug</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="AboutGroupBox">
+     <property name="title">
+      <string>About</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+     <layout class="QVBoxLayout" name="aboutLayout">
+      <item>
+       <widget class="QLabel" name="AboutLabel">
+        <property name="text">
+         <string>AutoSegmentSlicer is a custom application built on 3D Slicer for medical image analysis and segmentation.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="DocumentationGroupBox">
+     <property name="title">
+      <string>Documentation &amp; Tutorials</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+     <layout class="QVBoxLayout" name="documentationLayout">
+      <item>
+       <widget class="QLabel" name="DocumentationLabel">
+        <property name="text">
+         <string>Access documentation and tutorials from the Help menu.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="UpdatesGroupBox">
+     <property name="title">
+      <string>Updates</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+     <layout class="QVBoxLayout" name="updatesLayout">
+      <item>
+       <widget class="QLabel" name="UpdatesLabel">
+        <property name="text">
+         <string>Check for application and extension updates in the Extensions Manager.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="AcknowledgmentGroupBox">
+     <property name="title">
+      <string>Acknowledgment</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+     <layout class="QVBoxLayout" name="acknowledgmentLayout">
+      <item>
+       <widget class="QLabel" name="AcknowledgmentLabel">
+        <property name="text">
+         <string>Built on 3D Slicer. See Help → About for credits and acknowledgments.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="DataProbeGroupBox">
+     <property name="title">
+      <string>Data Probe</string>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+     <layout class="QVBoxLayout" name="dataProbeLayout">
+      <item>
+       <widget class="QCheckBox" name="ShowZoomedSliceCheckBox">
+        <property name="text">
+         <string>Show Zoomed Slice</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="DataProbeLabels">
+        <property name="text">
+         <string>L    F    B</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>qSlicerWidget</class>
+   <extends>QWidget</extends>
+   <header>qSlicerWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

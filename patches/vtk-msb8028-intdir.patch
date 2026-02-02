@@ -1,0 +1,15 @@
+diff --git a/SuperBuild/External_VTK.cmake b/SuperBuild/External_VTK.cmake
+--- a/SuperBuild/External_VTK.cmake
++++ b/SuperBuild/External_VTK.cmake
+@@ -160,5 +160,11 @@
+  set(EP_SOURCE_DIR ${CMAKE_BINARY_DIR}/${proj})
+  set(EP_BINARY_DIR ${CMAKE_BINARY_DIR}/${proj}-build)
+ 
++ if(CMAKE_VERSION VERSION_GREATER_EQUAL "4.2" AND CMAKE_GENERATOR MATCHES "Visual Studio")
++  list(APPEND EXTERNAL_PROJECT_OPTIONAL_CMAKE_CACHE_ARGS
++   -DCMAKE_INTERMEDIATE_DIR_STRATEGY:STRING=SHORT
++  )
++ endif()
++
+  ExternalProject_Add(${proj}
+  ${${proj}_EP_ARGS}

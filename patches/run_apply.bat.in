@@ -1,0 +1,13 @@
+@echo off
+cd /d "@SLICERSOURCES_SRC_DIR@"
+rem Skip VTK patch if already applied (e.g. after reconfigure)
+findstr /C:"CMAKE_INTERMEDIATE_DIR_STRATEGY" "SuperBuild\External_VTK.cmake" >nul
+if %ERRORLEVEL% equ 0 goto :vtk_done
+"@GIT_EXECUTABLE@" apply --ignore-whitespace "@PATCH_FILE@"
+:vtk_done
+rem Skip ITK patch if already applied
+findstr /C:"ITK_SKIP_PATH_LENGTH_CHECKS" "SuperBuild\External_ITK.cmake" >nul
+if %ERRORLEVEL% equ 0 goto :itk_done
+"@GIT_EXECUTABLE@" apply --ignore-whitespace "@PATCH_FILE2@"
+:itk_done
+exit /b 0
