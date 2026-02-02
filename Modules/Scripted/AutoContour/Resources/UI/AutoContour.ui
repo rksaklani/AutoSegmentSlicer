@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AutoContour</class>
+ <widget class="qSlicerWidget" name="AutoContour">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>320</width>
+    <height>200</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="InputGroupBox">
+     <property name="title">
+      <string>Input</string>
+     </property>
+     <layout class="QVBoxLayout" name="inputLayout">
+      <item>
+       <widget class="QLabel" name="VolumeLabel">
+        <property name="text">
+         <string>Volume (CT/MRI):</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="qMRMLNodeComboBox" name="InputVolumeSelector">
+        <property name="nodeTypes">
+         <stringlist>
+          <string>vtkMRMLScalarVolumeNode</string>
+         </stringlist>
+        </property>
+        <property name="addEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="removeEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="noneEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="showChildNodeTypes">
+         <bool>false</bool>
+        </property>
+        <property name="showHidden">
+         <bool>false</bool>
+        </property>
+        <property name="baseName">
+         <string>Volume</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="RunGroupBox">
+     <property name="title">
+      <string>Run</string>
+     </property>
+     <layout class="QVBoxLayout" name="runLayout">
+      <item>
+       <widget class="QPushButton" name="RunButton">
+        <property name="text">
+         <string>Run auto-contour</string>
+        </property>
+        <property name="toolTip">
+         <string>Run AI segmentation on the selected volume (add your PyTorch/MONAI model in the logic)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="HintLabel">
+        <property name="text">
+         <string>Placeholder: add your model (PyTorch/MONAI/ONNX) in AutoContourLogic.run(). Output will be a new segmentation.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="styleSheet">
+         <string>color: gray; font-size: 11px;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>qMRMLNodeComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qSlicerBaseQTCoreModulesWidgetsExport.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

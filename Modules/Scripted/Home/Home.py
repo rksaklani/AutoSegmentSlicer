@@ -80,6 +80,10 @@ class HomeWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
         self.ui.LoadVolumePathBrowseButton.clicked.connect(self._onLoadVolumePathBrowseClicked)
         self.ui.OpenDICOMPatcherButton.clicked.connect(self.openDICOMPatcher)
 
+        # Wire Auto-contouring buttons (Option A: extension, Option B: built-in module)
+        self.ui.AutoContourViaExtensionButton.clicked.connect(self._onAutoContourViaExtensionClicked)
+        self.ui.AutoContourModuleButton.clicked.connect(self._onAutoContourModuleClicked)
+
         # Set icons for quick action buttons (standard Qt icons)
         self._setWelcomeButtonIcons()
 
@@ -141,6 +145,27 @@ class HomeWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
             slicer.util.selectModule("DICOMPatcher")
         except Exception as e:
             slicer.util.errorDisplay(f"DICOMPatcher failed to load: {e}")
+
+    def _onAutoContourViaExtensionClicked(self):
+        """Option A: Open Extensions Manager so user can install an AI segmentation extension."""
+        try:
+            mainWindow = slicer.util.mainWindow()
+            action = slicer.util.findChild(mainWindow, "OpenExtensionsManagerAction")
+            if action and action.trigger:
+                action.trigger()
+            else:
+                slicer.util.infoDisplay(
+                    "Go to View → Extension Manager (or Help → Extension Manager) to install an AI segmentation extension (e.g. TotalSegmentator, MONAI Label)."
+                )
+        except Exception as e:
+            slicer.util.errorDisplay(f"Could not open Extensions Manager: {e}")
+
+    def _onAutoContourModuleClicked(self):
+        """Option B: Switch to the built-in AutoContour module (add PyTorch/MONAI model there)."""
+        try:
+            slicer.util.selectModule("AutoContour")
+        except Exception as e:
+            slicer.util.errorDisplay(f"AutoContour module failed to load: {e}")
 
     def cleanup(self):
         """Called when the application closes and the module widget is destroyed."""

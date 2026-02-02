@@ -65,7 +65,7 @@ set(Slicer_ORGANIZATION_NAME   "Kitware, Inc.")
 
 # Default home and favorite modules
 set(Slicer_DEFAULT_HOME_MODULE "Home")
-set(Slicer_DEFAULT_FAVORITE_MODULES "Data, Volumes, Models, Transforms, Markups, DICOM, DICOMPatcher, SegmentEditor, SegmentStatistics")
+set(Slicer_DEFAULT_FAVORITE_MODULES "Data, Volumes, Models, Transforms, Markups, DICOM, DICOMPatcher, SegmentEditor, SegmentStatistics, AutoContour")
 
 # Skip ITK path length check on Windows when build path is long (e.g. M:\RKDrive\...\AutoSegmentSlicer-Build)
 if(WIN32)
@@ -175,6 +175,7 @@ set(Slicer_EXTENSION_SOURCE_DIRS
   #${AutoSegmentSlicer_SOURCE_DIR}/Modules/CLI/MyCLIModule
   #${AutoSegmentSlicer_SOURCE_DIR}/Modules/Loadable/MyLoadableModule
   ${AutoSegmentSlicer_SOURCE_DIR}/Modules/Scripted/Home
+  ${AutoSegmentSlicer_SOURCE_DIR}/Modules/Scripted/AutoContour
   )
 
 # Add remote extension source directories
