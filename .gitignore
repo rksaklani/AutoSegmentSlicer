@@ -56,7 +56,6 @@ __pycache__/
 .Python
 venv/
 .venv/
-slicer_dev/
 env/
 .env/
 *.egg-info/
